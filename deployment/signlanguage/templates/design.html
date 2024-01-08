@@ -1,0 +1,243 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Kdam+Thmor+Pro:300,400,500,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Kdam Thmor Pro', sans-serif;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+        }
+
+        .navbar {
+            background-color: #010E2F;
+            color: #59d7eb;
+            position: fixed;
+            width: 100%;
+            z-index: 2;
+            align-items: center;
+            padding: 15px 20px;
+            display: flex;
+            top: 0;
+            left: 0;
+            right: 0; 
+        }
+
+
+        .navbar a {
+            color: #59d7eb;
+            text-decoration: none;
+            padding: 5px 16px;
+            align-items: center;
+            border-radius: 5px;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        .navbar a::before {
+            content: '';
+            position: absolute;
+            bottom: -0px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #59d7eb;
+            transition: width 0.3s ease-out;
+            margin-left: 10px;
+        }
+
+
+        .navbar a:hover::before {
+            width: 90%;
+        }
+
+        .navbar a:hover {
+            color: #59d7eb;
+        }
+
+        .menu-items {
+            margin-left: 750px; 
+        }
+
+        .menu-items a {
+            margin-left: 25px;
+            padding: 5px 10px; /* Adjust this value to control the space inside each menu item */
+        }
+
+        .video-container {
+            position: relative;
+            height: 100vh;
+            background-color: #010E2F;
+            overflow: hidden;
+            padding-bottom: 20px;
+            margin-top: 5px; /* Adjust this value to create space below the navbar */
+            z-index: 1; /* Ensure the video container is behind the navbar */
+        }
+
+        #video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .centered-content {
+            /*position: relative;*/
+            /*display: flex;*/
+            padding-top: 70px;
+            padding-left: 380px;
+            background-color: #010E2F;
+            align-items: center;
+            justify-content: center;
+            height: 50%;
+            text-align: center;
+            color: #ffffff;
+            z-index: 1;
+        }
+
+        .transparent-container {
+            /*background-color: rgba(243, 244, 255, 0.06);*/
+            padding: 0px;
+            border-radius: 10px;
+            text-align: center;
+            width: 100%;
+            max-width: 500px;
+            /*margin: 100px auto;*/
+
+        }
+
+        h2 {
+            font-weight: 300;
+            font-size: 40px;
+            color: #ffffff;
+            margin: 10px 0;
+        }
+
+        .highlight {
+            margin: 0;
+            font-size: 60px;
+            color: #59d7eb;
+        }
+
+        .button-content {
+            margin: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .next-container {
+            background-color: #ffffff; 
+            overflow: hidden;
+            border-radius: 20px;
+            height: auto; 
+            padding: 50px 0; 
+            text-align: center; /* Center content */
+        }
+
+        .next-container img {
+            max-width: 500px; 
+            max-height: 400px; /* Maintain aspect ratio */
+            margin-bottom: 20px; /* Add space below the image */
+        }
+
+        .next-container .scroll-button {
+            background-color: transparent;
+            border: none;
+            font-size: 24px;
+            color: #59d7eb;
+            cursor: pointer;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ffffff;
+            text-decoration: none;
+            background-color: #59d7eb;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            align-self: flex-end;
+            margin-top: auto; 
+            
+        }
+
+        .button:hover {
+            background-color: #010E2F;
+            
+        }
+
+        .logo-image{
+            max-height: 30px;
+            width: auto;
+        }
+
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="{% static 'images/image1.png' %}" alt="SignWave" class="logo-image">
+        <div class="menu-items">
+            <a href="{% url 'home_view' %}">Home</a>
+            <a href="{% url 'predict_view' %}">Translation</a>
+            <a href="{% url 'tutorial' %}">Tutorial</a>
+            <a href="{% url 'design' %}">Design</a>
+        </div>
+    </div>
+    
+    <div class="video-container">
+        <div class="centered-content">
+            <div class="transparent-container">
+                <h2  style="color: #59d7eb;">Glove Design</h2>
+                <h3>The glove is embedded with flex sensors, gyroscope and connected to and ESP32 microcontroller.</h3>
+                <h3 style="color: #59d7eb;">1. Flex sensors: Flex sensors are utilized to detect and measure the degree of bending or flexing of each finger.</h3>
+                <h3>2. Gyroscope: The gyroscope assists in tracking hand movements and orientations, aiding in accurate interpretation and translation of gestures.</h3>
+                <h3 style="color: #59d7eb;">3. ESP32 Microcontroller: The ESP32 is a powerful microcontroller that's widely used for various IoT applications, known for its dual-core processing, Wi-Fi/Bluetooth capabilities, and versatile functionality.</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="next-container">
+        <div class="flashcard-section">
+            <div class= "row">
+                <div class="flashcard">
+                    <h3  style="color: #59d7eb;">TOP-DOWN VIEW</h3>
+                    <img src="{% static 'images/abovebg.png' %}" >
+                </div>
+
+            <div class= "row">
+                <div class="flashcard">
+                    <h3  style="color: #59d7eb;">SIDE VIEW</h3>
+                    <img src="{% static 'images/sidebg.png' %}" >
+                </div>
+            </div>
+
+            <div class= "row">
+                <div class="flashcard">
+                    <h3  style="color: #59d7eb;">CIRCUIT DESIGN</h3>
+                    <img src="{% static 'images/image4.jpg' %}" >
+                </div>
+            </div>
+        </div>
+
+    
+</body>
+
+</html>
